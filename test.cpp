@@ -1,36 +1,35 @@
-#include <iostream> 
-#include <math.h> 
+#include <iostream>
+#include <math.h>
 #include <iomanip>
 using namespace std;
 
+void calc(int a, int b, int c){
+	
+	float ans1 = (-b + sqrt(pow(b, 2) - 4 * a * c)) / 2 * a;
+	float ans2 = (-b - sqrt(pow(b, 2) - 4 * a * c)) / 2 * a;
+	if((pow(b, 2) - 4 * a * c) < 0){
+		cout << "µL¸Ñ" << endl;
+	}else{
+		cout << setprecision(6) << fixed << ans1 << '\n' << ans2 << endl;
+	}
+}
+
 int main(){
 	
-	int n;
-	cin >> n;
-	
-	double *num;
-	num = new double[n];
-	
-	for(int i = 1; i <= n; i++){
-		double deltaX = (double)i / n;		
-		double expT = exp(deltaX * deltaX);
-		num[i - 1] = 1.0 / expT;
-	}
-//	for(int i = 0; i < n; i++) cout << setprecision(7) << fixed << num[i] << " " << endl;
-	double trapezoidal, simpson, tmpt, tmps, delta = 1.0 / n;
-	for(int i = 0; i < n - 1; i++){
-		tmpt += 2.0 * num[i];
-		if(i % 2 == 0){
-			tmps += 4.0 * num[i];
+	int a, b, c;
+	char com = 'T';
+	while(true){
+		
+		cin >> a >> b >> c;
+		calc(a, b, c);
+		cin >> com;
+		if(com - 'T' == 0){
+			continue;
 		}else{
-			tmps += 2.0 * num[i];
-		}		
+			break;
+		}
 	}
-	cout << endl << tmpt << " " << tmps  << endl;
-	trapezoidal = (1.0 / 2.0) * delta * (exp(0) + tmpt + num[n - 1]);
-	simpson = (1.0 / 3.0) * delta * (exp(0) + tmps + num[n - 1]);
-	cout << "trapezoidal is " << trapezoidal << endl;
-	cout << "simpson is " << simpson << endl;
+	
 	
 	
 	return 0;
