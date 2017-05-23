@@ -4,20 +4,20 @@ using namespace std;
 
 double trapezoidal(double *data){
 	double tmp;
-	for(int i = 1; i < 26; i++) tmp += 2.0 * data[i];
-	double trapezoidal = ((1.0 / 2.0) * 1.0 * (data[0] + tmp + data[26])) * pow((40.0 / 3.0), 2);
+	for(int i = 1; i < 26; i++) tmp += 2.0 * data[i] * (40.0 / 3.0);
+	double trapezoidal = (1.0 / 2.0) * (40.0 / 3.0) * (data[0] + tmp + data[26]);
 	return trapezoidal;
 }
 double simpson(double *data){
 	double tmp;
 	for(int i = 1; i < 26; i++){
 		if( i % 2 != 0){
-			tmp += 4 * data[i];
+			tmp += 4 * data[i] * (40.0 / 3.0);
 		}else{
-			tmp += 2 * data[i];
+			tmp += 2 * data[i] * (40.0 / 3.0);
 		}
 	}
-	double simpson = ((1.0 / 3.0) * 1.0 * (data[0] + tmp + data[26])) * pow((40.0 / 3.0), 2);
+	double simpson = (1.0 / 3.0) * (40.0 / 3.0) * (data[0] + tmp + data[26]);
 	return simpson;
 }
 
@@ -33,9 +33,5 @@ int main(){
 	}
 	cout << trapezoidal(dataF) << endl;
 	cout << simpson(dataF);
-	
-	
-	
-		
 	return 0;
 } 
