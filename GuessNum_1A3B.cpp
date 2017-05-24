@@ -11,7 +11,7 @@ int main(){
 //		cout << quiz[i] << endl;
 	}
 	
-	//»s³y¶Ã¼Æ¬°¤F"rand()" ¤£·|­«½Æ 
+	//è£½é€ äº‚æ•¸ç‚ºäº†"rand()" ä¸æœƒé‡è¤‡ 
 	srand(time(NULL)); //use stdlib.h and time.h
 	
 	
@@ -22,20 +22,20 @@ int main(){
 		tmp = quiz[i];
 		quiz[i] = quiz[p];
 		quiz[p] = tmp;
-//		cout << p << "\t" << quiz[i] << endl; //´ú¸Õ 
+//		cout << p << "\t" << quiz[i] << endl; //æ¸¬è©¦ 
 	}
 	
 	int guess[4], num, j, k;
 	for(i = 0; i < 7; i++){
-		cout << "½Ğ¿é¤J¥|­Ó¤£­«½Æªºªü©Ô§B¼Æ¦r : ";
+		cout << "è«‹è¼¸å…¥å››å€‹ä¸é‡è¤‡çš„é˜¿æ‹‰ä¼¯æ•¸å­— : ";
 		cin >> num;
-		//±N¿é¤Jªº¼Æ¦r¤À¦¨¤d¡B¦Ê¡B¤Q¡B­Ó¦ì¨Ã¥B©ñ¶i°}¦C 
+		//å°‡è¼¸å…¥çš„æ•¸å­—åˆ†æˆåƒã€ç™¾ã€åã€å€‹ä½ä¸¦ä¸”æ”¾é€²é™£åˆ— 
 		guess[0] = num / 1000;
 		guess[1] = (num / 100) % 10;
 		guess[2] = (num / 10) % 10;
 		guess[3] = num % 10;
 		
-		//§PÂ_¼Æ¦r»Pµª®×ªº¬Û²Åµ{«×
+		//åˆ¤æ–·æ•¸å­—èˆ‡ç­”æ¡ˆçš„ç›¸ç¬¦ç¨‹åº¦
 		int hintA = 0, hintB = 0;
 		for(j = 0; j < 4; j++) {
 			for(k = 0; k < 4; k++){
@@ -49,15 +49,15 @@ int main(){
 			}
 		}
 		if(hintA == 4){
-			cout << "®¥³ß±zµª¹ï¤F!!" << endl;
+			cout << "æ­å–œæ‚¨ç­”å°äº†!!" << endl;
 			 break;
 		}else{
-			cout << "¤p´£¥Ü " << i+1 << " :" << hintA << "A" << hintB << "B" << endl;
+			cout << "å°æç¤º " << i+1 << " :" << hintA << "A" << hintB << "B" << endl;
 		}		
 	}
 		
 	if(i == 7){
-		cout << "§A¿é¤F­ò~¥¿½Tµª®×¬O : ";
+		cout << "ä½ è¼¸äº†å”·~æ­£ç¢ºç­”æ¡ˆæ˜¯ : ";
 		for(int o = 0; o < 4; o++){
 			cout << quiz[o] ;
 		}
